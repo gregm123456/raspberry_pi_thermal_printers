@@ -160,3 +160,13 @@ Run with `sudo` or configure udev rules to allow non-root access to the USB devi
 This project code is licensed under the MIT License (see `LICENSE`).
 
 Manufacturer-supplied documentation files in `MC582H_documentation/` may not be covered by the MIT license. See `DOCS_LICENSE.md` for details.
+
+## Demo Video
+
+Embedded demo of a successful print run. If your viewer supports it, the video will play inline. Otherwise a download link is provided.
+
+<video controls width="640" src="print.mov">
+    Your browser does not support the <code>video</code> element. Download the demo: <a href="print.mov">print.mov</a>
+</video>
+
+If the video does not play, make sure `print.mov` is located at the repository root (same directory as this `README.md`).

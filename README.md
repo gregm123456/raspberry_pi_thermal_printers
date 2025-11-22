@@ -165,6 +165,6 @@ Manufacturer-supplied documentation files in `MC582H_documentation/` may not be 
 
 Embedded demo of a successful print run (hosted on YouTube).
 
-<iframe width="640" height="360" src="https://www.youtube.com/embed/3RQU2RzL4gs" title="MC582H print demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![MC582H print demo](https://img.youtube.com/vi/3RQU2RzL4gs/0.jpg)](https://www.youtube.com/watch?v=3RQU2RzL4gs)
 
-If the embed does not work, open the video on YouTube: https://www.youtube.com/watch?v=3RQU2RzL4gs
+If the embed does not work on GitHub, click the thumbnail above or open the video on YouTube: https://www.youtube.com/watch?v=3RQU2RzL4gs

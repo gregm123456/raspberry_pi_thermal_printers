@@ -61,36 +61,49 @@ lsusb
 
 You should see: `Bus XXX Device XXX: ID 4b43:3538 Caysn Thermal Printer`
 
-### 4. Test Print
+### 4. Configure USB Permissions (Recommended)
 
-**Create a test script** (`test_print.py`):
-```python
-from escpos.printer import Usb
+To avoid requiring `sudo` for every print operation, set up udev rules:
 
-try:
-    p = Usb(0x4b43, 0x3538, in_ep=0x81, out_ep=0x03)
-    p.text("Hello World\n")
-    p.text("MC582H Test Print\n")
-    p.cut()
-    print("Success")
-except Exception as e:
-    print(f"Error: {e}")
+**Create udev rule:**
+```bash
+sudo nano /etc/udev/rules.d/99-thermal-printer.rules
 ```
 
-**Run the test:**
-```bash
-sudo ./venv/bin/python3 test_print.py
+**Add this line:**
+```
+# MC582H Thermal Printer (Caysn)
+SUBSYSTEM=="usb", ATTR{idVendor}=="4b43", ATTR{idProduct}=="3538", MODE="0666", GROUP="lp"
 ```
 
-### 5. Print Images
+**Reload rules and reconnect printer:**
+```bash
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+# Unplug and replug the USB cable
+```
 
-Use the included `project_planning_documents/print_image.py` script:
+### 5. Test Print
+
+Use the included test script:
 
 ```bash
-sudo ./venv/bin/python3 project_planning_documents/print_image.py /path/to/image.png
+./venv/bin/python3 project_planning_documents/test_print_caysn_v2.py
+```
+
+*(No `sudo` needed if udev rules are configured)*
+
+### 6. Print Images
+
+Use the user-friendly image printing script:
+
+```bash
+./venv/bin/python3 project_planning_documents/print_image_user.py /path/to/image.png
 ```
 
 **Note:** For best results, resize images to 384 pixels wide before printing.
+
+**If you get permission errors:** Either run with `sudo` or verify udev rules are configured (see step 4).
 
 ## Key Configuration Details
 
@@ -126,34 +139,42 @@ p.profile.profile_data['media'] = {
 ├── project_planning_documents/
 │   ├── configuration_setup_log.md      # Setup troubleshooting log
 │   ├── raspberry_pi_connection_and_setup.md
+│   ├── image_print_integration_plan.md # Non-sudo setup guide
 │   ├── find_endpoints.py               # Diagnostic tool
 │   ├── test_print_caysn_v2.py         # Basic text test
-│   └── print_image.py                  # Image printing script
+│   ├── print_image.py                  # Image printing script (requires sudo)
+│   └── print_image_user.py            # Image printing script (user mode)
 └── python-escpos/                      # Git submodule (ESC/POS library)
 ```
 
 ## Troubleshooting
 
-### Module Not Found Error
-If you get `ModuleNotFoundError: No module named 'escpos'`, make sure you're using the Python interpreter from your virtual environment:
+### Permission Denied
+**Preferred solution:** Configure udev rules (see Quick Start step 4) so you don't need `sudo`.
+
+**Temporary workaround:** Run with `sudo`:
 ```bash
-sudo ./venv/bin/python3 script.py
+sudo ./venv/bin/python3 project_planning_documents/print_image_user.py image.png
+```
+
+### Module Not Found Error
+Make sure you're using the Python interpreter from your virtual environment:
+```bash
+./venv/bin/python3 script.py
 ```
 
 ### Invalid Endpoint Address
 The MC582H uses non-standard USB endpoints. Always specify `in_ep=0x81` and `out_ep=0x03`.
 
 ### Image Gets Cut Off
-The script `print_image.py` includes paper feed before cutting. If images still get cut off, increase the feed amount in the script.
-
-### Permission Denied
-Run with `sudo` or configure udev rules to allow non-root access to the USB device.
+The scripts include paper feed before cutting. If images still get cut off, increase the feed amount in the script (edit the `"\n" * 5` line).
 
 ## Additional Resources
 
-- Full instruction set: See `MC582H_documentation/`
-- Setup log with all troubleshooting steps: `project_planning_documents/configuration_setup_log.md`
-- Hardware wiring guide: `project_planning_documents/raspberry_pi_connection_and_setup.md`
+- **Non-sudo setup guide:** `project_planning_documents/image_print_integration_plan.md` - Complete guide for running without `sudo`
+- **Full instruction set:** See `MC582H_documentation/`
+- **Setup log with all troubleshooting steps:** `project_planning_documents/configuration_setup_log.md`
+- **Hardware wiring guide:** `project_planning_documents/raspberry_pi_connection_and_setup.md`
 
 ## License Notes
 

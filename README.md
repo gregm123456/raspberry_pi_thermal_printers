@@ -85,7 +85,7 @@ sudo udevadm trigger
 
 ### 5. Test Print
 
-Use the included test script:
+Use the included test script: [`project_planning_documents/test_print_caysn_v2.py`](project_planning_documents/test_print_caysn_v2.py)
 
 ```bash
 ./venv/bin/python3 project_planning_documents/test_print_caysn_v2.py
@@ -95,7 +95,7 @@ Use the included test script:
 
 ### 6. Print Images
 
-Use the user-friendly image printing script:
+Use the user-friendly image printing script: [`project_planning_documents/print_image_user.py`](project_planning_documents/print_image_user.py)
 
 ```bash
 ./venv/bin/python3 project_planning_documents/print_image_user.py /path/to/image.png
@@ -147,6 +147,17 @@ p.profile.profile_data['media'] = {
 └── python-escpos/                      # Git submodule (ESC/POS library)
 ```
 
+Quick links:
+
+- Non-sudo setup guide: [project_planning_documents/image_print_integration_plan.md](project_planning_documents/image_print_integration_plan.md)
+- Diagnostic tool: [project_planning_documents/find_endpoints.py](project_planning_documents/find_endpoints.py)
+- Basic text test: [project_planning_documents/test_print_caysn_v2.py](project_planning_documents/test_print_caysn_v2.py)
+- Image print (user): [project_planning_documents/print_image_user.py](project_planning_documents/print_image_user.py)
+- Image print (sudo): [project_planning_documents/print_image.py](project_planning_documents/print_image.py)
+- Setup log: [project_planning_documents/configuration_setup_log.md](project_planning_documents/configuration_setup_log.md)
+- Wiring guide: [project_planning_documents/raspberry_pi_connection_and_setup.md](project_planning_documents/raspberry_pi_connection_and_setup.md)
+- Manufacturer docs directory: [MC582H_documentation/](MC582H_documentation/)
+
 ## Troubleshooting
 
 ### Permission Denied
@@ -171,10 +182,10 @@ The scripts include paper feed before cutting. If images still get cut off, incr
 
 ## Additional Resources
 
-- **Non-sudo setup guide:** `project_planning_documents/image_print_integration_plan.md` - Complete guide for running without `sudo`
-- **Full instruction set:** See `MC582H_documentation/`
-- **Setup log with all troubleshooting steps:** `project_planning_documents/configuration_setup_log.md`
-- **Hardware wiring guide:** `project_planning_documents/raspberry_pi_connection_and_setup.md`
+ - **Non-sudo setup guide:** [project_planning_documents/image_print_integration_plan.md](project_planning_documents/image_print_integration_plan.md) - Complete guide for running without `sudo`
+ - **Full instruction set:** [MC582H_documentation/](MC582H_documentation/)
+ - **Setup log with all troubleshooting steps:** [project_planning_documents/configuration_setup_log.md](project_planning_documents/configuration_setup_log.md)
+ - **Hardware wiring guide:** [project_planning_documents/raspberry_pi_connection_and_setup.md](project_planning_documents/raspberry_pi_connection_and_setup.md)
 
 ## License Notes
 

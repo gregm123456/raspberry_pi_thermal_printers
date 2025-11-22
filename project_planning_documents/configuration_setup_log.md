@@ -159,3 +159,22 @@ Success! The printer printed "Hello World" and "Endpoint Configuration Correct!"
 
 **Conclusion:**
 The printer is fully operational via USB using `python-escpos` with explicit endpoint configuration (`in_ep=0x81`, `out_ep=0x03`).
+
+## Test 3: Image Printing
+
+**Script:** `print_image.py`
+This script takes an image path as an argument, configures the printer profile (width: 384px, dpi: 203), prints the image, feeds paper, and cuts.
+
+**Command:**
+```bash
+sudo ./venv/bin/python3 print_image.py celadon.png
+```
+
+**Result:**
+Success! The image printed correctly, centered, and the paper was cut after feeding.
+
+**Key Configuration Details:**
+*   **Vendor ID:** `0x4b43`
+*   **Product ID:** `0x3538`
+*   **Endpoints:** `in_ep=0x81`, `out_ep=0x03`
+*   **Profile:** `media.width.pixels=384`, `media.dpi=203`

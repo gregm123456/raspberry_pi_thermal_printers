@@ -163,10 +163,8 @@ Manufacturer-supplied documentation files in `MC582H_documentation/` may not be 
 
 ## Demo Video
 
-Embedded demo of a successful print run. If your viewer supports it, the video will play inline. Otherwise a download link is provided.
+Embedded demo of a successful print run (hosted on YouTube).
 
-<video controls width="640" src="print.mov">
-    Your browser does not support the <code>video</code> element. Download the demo: <a href="print.mov">print.mov</a>
-</video>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/3RQU2RzL4gs" title="MC582H print demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-If the video does not play, make sure `print.mov` is located at the repository root (same directory as this `README.md`).
+If the embed does not work, open the video on YouTube: https://www.youtube.com/watch?v=3RQU2RzL4gs

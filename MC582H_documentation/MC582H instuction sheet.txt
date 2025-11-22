@@ -1,0 +1,12 @@
+Hello Dear Customer
+Thank you for ordering our company's Thermal ticket printer module.
+You purchased a RS232+USB interface printer. Both the serial port and the USB interface are used for data transmission only, and the power supply is independently powered. 12V3A power supply;
+The printer serial port Baud is 115200 by default; When you connect TX, RX, GND, and power, the printer will work.
+The serial port and USB port of the printer can be used normally respectively.If the USB port is connected to the WIN system, you need to install a Printer driver, and select the driver to print when printing.
+This printer can be connected to single-chip microcomputer, Android, Linux, Windows system, Android to provide a secondary development kit, the Linux, microcontroller (MCU) can directly send print instructions.
+We have created a simple and straightforward instruction print example for you, showing bold, underline, reverse text, variable line spacing, left/middle/right alignment, regular text, barcode, QR code, etc Print example.
+If you need technical development materials and specifications for this print module, you can contact us by email.
+Work email: 3122285228@qq.com or contact us via Amazon.
+If you have any questions during the test or use, please feel free to contact us and we will provide you with technical support in time!
+Thank you for your order.
+Best blessing!
